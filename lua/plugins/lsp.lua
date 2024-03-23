@@ -5,9 +5,8 @@ return {
         config = function()
             local lsp_zero = require('lsp-zero')
 
-            lsp_zero.on_attach(function(client, bufnr)
-                -- see :help lsp-zero-keybindings
-                -- to learn the available actions
+            lsp_zero.on_attach(function(_, bufnr)
+                -- see :help lsp-zero-keybindings to learn the available actions
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
         end
@@ -43,6 +42,7 @@ return {
     { 'hrsh7th/cmp-nvim-lsp' },
     {
         'hrsh7th/nvim-cmp',
+        dependencies = { "hrsh7th/cmp-nvim-lsp-signature-help" },
         config = function()
             local cmp = require("cmp")
             cmp.setup({
