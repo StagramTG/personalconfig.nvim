@@ -36,6 +36,16 @@ return {
             lsp_zero.extend_lspconfig()
 
             local lspconfig = require('lspconfig')
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = {'vim'},
+                        },
+                    },
+                },
+            })
             lspconfig.csharp_ls.setup({})
         end
     },
